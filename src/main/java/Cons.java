@@ -40,7 +40,7 @@ public class Cons implements ImmutableList
     @Override
     public boolean contains(int value)
     {
-        return false;
+        return (head == value) || tail.contains(value);
     }
 
     public String toString()
