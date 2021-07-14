@@ -1,0 +1,17 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=no]
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: clang-format
+        name: clang-format
+        description: Format files with Clang-Format.
+        entry: clang-format --style=file -i
+        language: system
+        types: [java]
