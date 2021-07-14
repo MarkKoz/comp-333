@@ -1,7 +1,5 @@
 public class Nil implements ImmutableList
 {
-    public Nil() { }
-
     public boolean equals(final Object other)
     {
         return other instanceof Nil;
@@ -20,13 +18,13 @@ public class Nil implements ImmutableList
     }
 
     @Override
-    public ImmutableList append(ImmutableList other)
+    public ImmutableList append(final ImmutableList other)
     {
         return other;
     }
 
     @Override
-    public boolean contains(int value)
+    public boolean contains(final int value)
     {
         return false;
     }

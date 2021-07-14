@@ -13,7 +13,7 @@ public class Cons implements ImmutableList
     {
         if (other instanceof Cons) {
             final Cons otherCons = (Cons) other;
-            return head == otherCons.head && tail.equals(otherCons.tail);
+            return (head == otherCons.head) && tail.equals(otherCons.tail);
         } else {
             return false;
         }
@@ -32,13 +32,13 @@ public class Cons implements ImmutableList
     }
 
     @Override
-    public ImmutableList append(ImmutableList other)
+    public ImmutableList append(final ImmutableList other)
     {
         return new Cons(head, tail.append(other));
     }
 
     @Override
-    public boolean contains(int value)
+    public boolean contains(final int value)
     {
         return (head == value) || tail.contains(value);
     }
