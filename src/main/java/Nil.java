@@ -7,6 +7,30 @@ public class Nil implements ImmutableList
         return other instanceof Nil;
     }
 
+    @Override
+    public int length()
+    {
+        return 0;
+    }
+
+    @Override
+    public int sum()
+    {
+        return 0;
+    }
+
+    @Override
+    public ImmutableList append(ImmutableList other)
+    {
+        return null;
+    }
+
+    @Override
+    public boolean contains(int value)
+    {
+        return false;
+    }
+
     public String toString()
     {
         return "Nil";
