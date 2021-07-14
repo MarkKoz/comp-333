@@ -28,7 +28,7 @@ public class Cons implements ImmutableList
     @Override
     public int sum()
     {
-        return 0;
+        return head + tail.sum();
     }
 
     @Override
