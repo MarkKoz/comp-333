@@ -34,7 +34,7 @@ public class Cons implements ImmutableList
     @Override
     public ImmutableList append(ImmutableList other)
     {
-        return null;
+        return new Cons(head, tail.append(other));
     }
 
     @Override

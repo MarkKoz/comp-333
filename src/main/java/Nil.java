@@ -22,7 +22,7 @@ public class Nil implements ImmutableList
     @Override
     public ImmutableList append(ImmutableList other)
     {
-        return null;
+        return other;
     }
 
     @Override
