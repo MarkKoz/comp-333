@@ -23,10 +23,9 @@ For this assignment, you'll be using JavaScript. It's possible to make this assi
 
 To work with node from the command line, you can do the following:
 
-1. Go to the directory containing the file (using the cd command)
-2. Start node.js with the `node` command
-3. Within the node.js prompt, type `.load list.js` and hit enter. This will read your program.
-4. Run the tests by typing `runTests()` and hitting enter. This will execute the `runTests()` function in this file.
+1. Go to the repository root directory (using the cd command).
+2. Run the tests by typing `npm run test` and hitting enter. This will execute the `runTests()` function in the `tests.js` file.
+    - Type `node -e "require('./src/tests').runTests()"` instead if you don't have `npm`.
 
 ### Step 2: Implement a Singly-Linked List
 
