@@ -42,8 +42,29 @@ function Cons(head, tail) {
 }
 
 Cons.prototype = new List();
+
+Cons.prototype.append = function (list) {
+    return this;
+};
+
+Cons.prototype.contains = function (value) {
+    return false;
+};
+
+Cons.prototype.filter = function (callbackFn) {
+    return this;
+};
+
 Cons.prototype.isEmpty = function () {
     return false;
+};
+
+Cons.prototype.length = function () {
+    return 0;
+};
+
+Cons.prototype.map = function (callbackFn) {
+    return this;
 };
 // endregion: Cons
 
