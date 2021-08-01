@@ -1,3 +1,6 @@
+/* eslint-disable camelcase,eqeqeq,no-prototype-builtins */
+const {Cons, List, Nil} = require("./list");
+
 // Do not modify!  When I test your code myself,
 // I won't use this code below, so I won't be working
 // with any of your modifications!
@@ -14,182 +17,182 @@ function runTest(test) {
 
 function assertEquals(expected, received) {
     if (expected !== received) {
-        throw (
+        throw Error(
             "\tExpected: " +
-            expected.toString() +
-            "\n" +
-            "\tReceived: " +
-            received.toString()
+                expected.toString() +
+                "\n" +
+                "\tReceived: " +
+                received.toString()
         );
     }
 }
 
 function test_nil_join() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals("[]", nil.join(", "));
 }
 
 function test_nil_toString() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals("[]", nil.toString());
 }
 
 function test_nil_instanceof_list() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals(true, nil instanceof List);
 }
 
 function test_nil_has_no_head() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals(false, nil.hasOwnProperty("head"));
 }
 
 function test_nil_has_no_tail() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals(false, nil.hasOwnProperty("tail"));
 }
 
 function test_nil_isEmpty() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals(true, nil.isEmpty());
 }
 
 function test_nil_length() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals(0, nil.length());
 }
 
 function test_nil_filter() {
-    let nil = new Nil();
-    let f = function (e) {
+    const nil = new Nil();
+    const f = function (e) {
         return true;
     };
     assertEquals("[]", nil.filter(f).toString());
 }
 
 function test_nil_map() {
-    let nil = new Nil();
-    let increment = function (e) {
+    const nil = new Nil();
+    const increment = function (e) {
         return e + 1;
     };
     assertEquals("[]", nil.map(increment).toString());
 }
 
 function test_cons_instanceof_list() {
-    let list = new Cons(1, new Nil());
+    const list = new Cons(1, new Nil());
     assertEquals(true, list instanceof List);
 }
 
 function test_cons_join_single_element() {
-    let list = new Cons(1, new Nil());
+    const list = new Cons(1, new Nil());
     assertEquals("[1]", list.join(":"));
 }
 
 function test_cons_join_two_elements() {
-    let list = new Cons(1, new Cons(2, new Nil()));
+    const list = new Cons(1, new Cons(2, new Nil()));
     assertEquals("[1:2]", list.join(":"));
 }
 
 function test_cons_join_three_elements() {
-    let list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
+    const list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
     assertEquals("[1:2:3]", list.join(":"));
 }
 
 function test_cons_toString_single_element() {
-    let list = new Cons(1, new Nil());
+    const list = new Cons(1, new Nil());
     assertEquals("[1]", list.toString());
 }
 
 function test_cons_toString_two_elements() {
-    let list = new Cons(1, new Cons(2, new Nil()));
+    const list = new Cons(1, new Cons(2, new Nil()));
     assertEquals("[1, 2]", list.toString());
 }
 
 function test_cons_toString_three_elements() {
-    let list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
+    const list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
     assertEquals("[1, 2, 3]", list.toString());
 }
 
 function test_cons_head() {
-    let list = new Cons(1, new Nil());
+    const list = new Cons(1, new Nil());
     assertEquals(1, list.head);
 }
 
 function test_cons_empty_tail() {
-    let list = new Cons(1, new Nil());
+    const list = new Cons(1, new Nil());
     assertEquals("[]", list.tail.toString());
 }
 
 function test_cons_nonempty_tail() {
-    let list = new Cons(1, new Cons(2, new Nil()));
+    const list = new Cons(1, new Cons(2, new Nil()));
     assertEquals("[2]", list.tail.toString());
 }
 
 function test_cons_isEmpty() {
-    let list = new Cons(1, new Nil());
+    const list = new Cons(1, new Nil());
     assertEquals(false, list.isEmpty());
 }
 
 function test_cons_length_1() {
-    let list = new Cons("a", new Nil());
+    const list = new Cons("a", new Nil());
     assertEquals(1, list.length());
 }
 
 function test_cons_length_2() {
-    let list = new Cons("a", new Cons("b", new Nil()));
+    const list = new Cons("a", new Cons("b", new Nil()));
     assertEquals(2, list.length());
 }
 
 function test_cons_filter_has_element() {
-    let list = new Cons(1, new Nil());
-    let isOdd = function (e) {
+    const list = new Cons(1, new Nil());
+    const isOdd = function (e) {
         return e % 2 == 1;
     };
     assertEquals("[1]", list.filter(isOdd).toString());
 }
 
 function test_cons_filter_has_no_element() {
-    let list = new Cons(2, new Nil());
-    let isOdd = function (e) {
+    const list = new Cons(2, new Nil());
+    const isOdd = function (e) {
         return e % 2 == 1;
     };
     assertEquals("[]", list.filter(isOdd).toString());
 }
 
 function test_cons_filter_multi_1() {
-    let list = new Cons(2, new Cons(4, new Nil()));
-    let isOdd = function (e) {
+    const list = new Cons(2, new Cons(4, new Nil()));
+    const isOdd = function (e) {
         return e % 2 == 1;
     };
     assertEquals("[]", list.filter(isOdd).toString());
 }
 
 function test_cons_filter_multi_2() {
-    let list = new Cons(2, new Cons(5, new Nil()));
-    let isOdd = function (e) {
+    const list = new Cons(2, new Cons(5, new Nil()));
+    const isOdd = function (e) {
         return e % 2 == 1;
     };
     assertEquals("[5]", list.filter(isOdd).toString());
 }
 
 function test_cons_filter_multi_3() {
-    let list = new Cons(3, new Cons(4, new Nil()));
-    let isOdd = function (e) {
+    const list = new Cons(3, new Cons(4, new Nil()));
+    const isOdd = function (e) {
         return e % 2 == 1;
     };
     assertEquals("[3]", list.filter(isOdd).toString());
 }
 
 function test_cons_filter_multi_4() {
-    let list = new Cons(3, new Cons(5, new Nil()));
-    let isOdd = function (e) {
+    const list = new Cons(3, new Cons(5, new Nil()));
+    const isOdd = function (e) {
         return e % 2 == 1;
     };
     assertEquals("[3, 5]", list.filter(isOdd).toString());
 }
 
 function test_cons_filter_multi_5() {
-    let list = new Cons(
+    const list = new Cons(
         1,
         new Cons(
             5,
@@ -199,100 +202,100 @@ function test_cons_filter_multi_5() {
             )
         )
     );
-    let f = function (e) {
+    const f = function (e) {
         return e < 6;
     };
     assertEquals("[1, 5, 2, 3, 4]", list.filter(f).toString());
 }
 
 function test_nil_nil_append() {
-    let nil1 = new Nil();
-    let nil2 = new Nil();
+    const nil1 = new Nil();
+    const nil2 = new Nil();
     assertEquals("[]", nil1.append(nil2).toString());
 }
 
 function test_cons_map_1() {
-    let list = new Cons(1, new Nil());
-    let increment = function (e) {
+    const list = new Cons(1, new Nil());
+    const increment = function (e) {
         return e + 1;
     };
     assertEquals("[2]", list.map(increment).toString());
 }
 
 function test_cons_map_2() {
-    let list = new Cons(1, new Cons(2, new Nil()));
-    let increment = function (e) {
+    const list = new Cons(1, new Cons(2, new Nil()));
+    const increment = function (e) {
         return e + 1;
     };
     assertEquals("[2, 3]", list.map(increment).toString());
 }
 
 function test_cons_map_3() {
-    let list = new Cons(2, new Cons(5, new Nil()));
-    let multBy3 = function (e) {
+    const list = new Cons(2, new Cons(5, new Nil()));
+    const multBy3 = function (e) {
         return e * 3;
     };
     assertEquals("[6, 15]", list.map(multBy3).toString());
 }
 
 function test_cons_map_4() {
-    let list = new Cons(
+    const list = new Cons(
         "alpha",
         new Cons("beta", new Cons("gamma", new Nil()))
     );
-    let identity = function (e) {
+    const identity = function (e) {
         return e;
     };
     assertEquals("[alpha, beta, gamma]", list.map(identity).toString());
 }
 
 function test_nil_cons_append() {
-    let nil = new Nil();
-    let list = new Cons(1, new Cons(2, new Nil()));
+    const nil = new Nil();
+    const list = new Cons(1, new Cons(2, new Nil()));
     assertEquals("[1, 2]", nil.append(list).toString());
 }
 
 function test_cons_nil_append() {
-    let list = new Cons(1, new Cons(2, new Nil()));
-    let nil = new Nil();
+    const list = new Cons(1, new Cons(2, new Nil()));
+    const nil = new Nil();
     assertEquals("[1, 2]", list.append(nil).toString());
 }
 
 function test_cons_cons_append_1() {
-    let list1 = new Cons(1, new Cons(2, new Nil()));
-    let list2 = new Cons(3, new Cons(4, new Cons(5, new Nil())));
+    const list1 = new Cons(1, new Cons(2, new Nil()));
+    const list2 = new Cons(3, new Cons(4, new Cons(5, new Nil())));
     assertEquals("[1, 2, 3, 4, 5]", list1.append(list2).toString());
 }
 
 function test_cons_cons_append_2() {
-    let list1 = new Cons(1, new Cons(2, new Nil()));
-    let list2 = new Cons(3, new Cons(4, new Cons(5, new Nil())));
+    const list1 = new Cons(1, new Cons(2, new Nil()));
+    const list2 = new Cons(3, new Cons(4, new Cons(5, new Nil())));
     assertEquals("[3, 4, 5, 1, 2]", list2.append(list1).toString());
 }
 
 function test_nil_contains() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals(false, nil.contains(1));
 }
 
 function test_cons_contains_first() {
-    let list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
+    const list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
     assertEquals(true, list.contains(1));
 }
 
 function test_cons_contains_second() {
-    let list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
+    const list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
     assertEquals(true, list.contains(2));
 }
 
 function test_cons_contains_nowhere() {
-    let list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
+    const list = new Cons(1, new Cons(2, new Cons(3, new Nil())));
     assertEquals(false, list.contains(4));
 }
 
 function test_nil_and_cons_have_different_prototypes() {
-    let nil = new Nil();
-    let cons = new Cons(1, new Nil());
+    const nil = new Nil();
+    const cons = new Cons(1, new Nil());
     assertEquals(
         false,
         Object.getPrototypeOf(nil) == Object.getPrototypeOf(cons)
@@ -304,57 +307,58 @@ function getGrandparent(obj) {
 }
 
 function test_nil_and_cons_have_same_grandparent_prototypes() {
-    let nil = new Nil();
-    let cons = new Cons(1, new Nil());
+    const nil = new Nil();
+    const cons = new Cons(1, new Nil());
     assertEquals(getGrandparent(nil), getGrandparent(cons));
 }
 
 function test_nil_grandparent_prototype_has_join() {
-    let nil = new Nil();
+    const nil = new Nil();
     assertEquals(true, getGrandparent(nil).hasOwnProperty("join"));
 }
 
 function test_nil_grandparent_prototype_has_toString() {
-    let cons = new Cons(1, new Nil());
+    const cons = new Cons(1, new Nil());
     assertEquals(true, getGrandparent(cons).hasOwnProperty("toString"));
 }
 
 function test_nil_and_cons_have_different_isEmpty() {
-    let nil = new Nil();
-    let cons = new Cons(1, new Nil());
+    const nil = new Nil();
+    const cons = new Cons(1, new Nil());
     assertEquals(false, nil.isEmpty == cons.isEmpty);
 }
 
 function test_nil_and_cons_have_different_append() {
-    let nil = new Nil();
-    let cons = new Cons(1, new Nil());
+    const nil = new Nil();
+    const cons = new Cons(1, new Nil());
     assertEquals(false, nil.append == cons.append);
 }
 
 function test_nil_and_cons_have_different_contains() {
-    let nil = new Nil();
-    let cons = new Cons(1, new Nil());
+    const nil = new Nil();
+    const cons = new Cons(1, new Nil());
     assertEquals(false, nil.contains == cons.contains);
 }
 
 function test_nil_and_cons_have_different_length() {
-    let nil = new Nil();
-    let cons = new Cons(1, new Nil());
+    const nil = new Nil();
+    const cons = new Cons(1, new Nil());
     assertEquals(false, nil.length == cons.length);
 }
 
 function test_nil_and_cons_have_different_filter() {
-    let nil = new Nil();
-    let cons = new Cons(1, new Nil());
+    const nil = new Nil();
+    const cons = new Cons(1, new Nil());
     assertEquals(false, nil.filter == cons.filter);
 }
 
 function test_nil_and_cons_have_different_map() {
-    let nil = new Nil();
-    let cons = new Cons(1, new Nil());
+    const nil = new Nil();
+    const cons = new Cons(1, new Nil());
     assertEquals(false, nil.map == cons.map);
 }
 
+// eslint-disable-next-line no-unused-vars
 function runTests() {
     // ---begin tests for nil---
 

@@ -49,3 +49,8 @@ Nil.prototype = new List();
 Nil.prototype.isEmpty = function () {
     return true;
 };
+
+// It's undefined if it's loaded in the REPL with .load
+if (module !== undefined) {
+    module.exports = {Cons, List, Nil};
+}
