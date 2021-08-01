@@ -464,3 +464,5 @@ function runTests() {
     runTest(test_nil_and_cons_have_different_map);
     // ---end tests relating to prototypes---
 }
+
+module.exports = {runTests};

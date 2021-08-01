@@ -1,0 +1,10 @@
+{
+    "name": "comp-333-02",
+    "version": "1.0.0",
+    "description": "COMP 333 - Assignment 2: Prototype-based Inheritance and Virtual Dispatch in JavaScript.",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "test": "node -e \"require('./src/tests').runTests()\""
+    }
+}
