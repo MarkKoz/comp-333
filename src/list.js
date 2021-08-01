@@ -64,7 +64,7 @@ Cons.prototype.length = function () {
 };
 
 Cons.prototype.map = function (callbackFn) {
-    return this;
+    return new Cons(callbackFn(this.head), this.tail.map(callbackFn));
 };
 // endregion: Cons
 
