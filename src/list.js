@@ -1,16 +1,17 @@
-// join
-//
-// Parameters:
-// - A List of elements
-// - A delimeter to separate them by
-// Returns a single string, which results from calling
-// toString on each element, separated by the delimeter.
-//
-// For example:
-// join(new Nil(), ", ")                     // "[]"
-// join(new Cons(1, new Nil()), ", ")        // [1]
-// join(new Cons(2, new Cons(3, new Nil())), // [2, 3]
-//
+/**
+ * Create a delimited string of List elements.
+ *
+ * @example
+ * join(new Nil(), ", "); // "[]"
+ * join(new Cons(1, new Nil()), ", "); // [1]
+ * join(new Cons(2, new Cons(3, new Nil())); // [2, 3]
+ *
+ * @param list {List} A List of elements.
+ * @param delim {string} A delimiter to separate them by.
+ *
+ * @returns {string} A single string which results from calling toString on
+ * each element, separated by the delimiter.
+ */
 function join(list, delim) {
     let retval = "[";
     while (list instanceof Cons && !(list.tail instanceof Nil)) {
