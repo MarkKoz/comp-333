@@ -60,7 +60,7 @@ Cons.prototype.isEmpty = function () {
 };
 
 Cons.prototype.length = function () {
-    return 0;
+    return 1 + this.tail.length();
 };
 
 Cons.prototype.map = function (callbackFn) {
