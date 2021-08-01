@@ -22,7 +22,7 @@ function join(list, delim) {
     }
     retval += "]";
     return retval;
-} // join
+}
 
 function List() {}
 
