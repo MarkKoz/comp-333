@@ -48,7 +48,7 @@ Cons.prototype.append = function (list) {
 };
 
 Cons.prototype.contains = function (value) {
-    return false;
+    return this.head === value || this.tail.contains(value);
 };
 
 Cons.prototype.filter = function (callbackFn) {
