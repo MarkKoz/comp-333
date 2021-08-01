@@ -44,7 +44,7 @@ function Cons(head, tail) {
 Cons.prototype = new List();
 
 Cons.prototype.append = function (list) {
-    return this;
+    return new Cons(this.head, this.tail.append(list));
 };
 
 Cons.prototype.contains = function (value) {
