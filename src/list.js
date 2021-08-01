@@ -24,6 +24,7 @@ function join(list, delim) {
     return retval;
 }
 
+// region: List
 function List() {}
 
 List.prototype.join = function (delim) {
@@ -32,7 +33,9 @@ List.prototype.join = function (delim) {
 List.prototype.toString = function () {
     return this.join(", ");
 };
+// endregion: List
 
+// region: Cons
 function Cons(head, tail) {
     this.head = head;
     this.tail = tail;
@@ -42,13 +45,37 @@ Cons.prototype = new List();
 Cons.prototype.isEmpty = function () {
     return false;
 };
+// endregion: Cons
 
+// region: Nil
 function Nil() {}
 
 Nil.prototype = new List();
+
+Nil.prototype.append = function (list) {
+    return list;
+};
+
+Nil.prototype.contains = function () {
+    return false;
+};
+
+Nil.prototype.filter = function () {
+    return this;
+};
+
 Nil.prototype.isEmpty = function () {
     return true;
 };
+
+Nil.prototype.length = function () {
+    return 0;
+};
+
+Nil.prototype.map = function () {
+    return this;
+};
+// endregion: Nil
 
 // It's undefined if it's loaded in the REPL with .load
 if (module !== undefined) {
