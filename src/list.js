@@ -52,7 +52,8 @@ Cons.prototype.contains = function (value) {
 };
 
 Cons.prototype.filter = function (callbackFn) {
-    return this;
+    const tail = this.tail.filter(callbackFn);
+    return callbackFn(this.head) ? new Cons(this.head, tail) : tail;
 };
 
 Cons.prototype.isEmpty = function () {
