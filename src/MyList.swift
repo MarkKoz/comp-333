@@ -37,6 +37,30 @@ public extension MyList {
                 return false
         }
     }
+
+    func isEmpty() -> Bool {
+        return true
+    }
+
+    func append(other: MyList) -> MyList {
+        return self
+    }
+
+    func length() -> Int {
+        return 0
+    }
+
+    func filter(predicate: (A) -> Bool) -> MyList {
+        return self
+    }
+
+    func contains(target: A, compare: (A, A) -> Bool) -> Bool {
+        return false
+    }
+
+    func sum(zero: A, add: (A, A) -> A) -> A {
+        return zero
+    }
 }
 
 // This should be a method, but we can't do this because of a bug in
