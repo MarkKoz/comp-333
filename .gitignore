@@ -39,3 +39,6 @@ web/static/js/
 web/static/dist/
 *.tsbuildinfo
 *.d.ts
+
+# Swift
+.build/
