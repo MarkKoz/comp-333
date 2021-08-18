@@ -7,3 +7,11 @@ repos:
           - id: mixed-line-ending
             args: [--fix=no]
           - id: trailing-whitespace
+    - repo: local
+      hooks:
+          - id: swiftformat
+            name: SwiftFormat
+            description: Check swift files for formating issues with SwiftFormat.
+            entry: swiftformat
+            language: system
+            types: [swift]

@@ -1,0 +1,49 @@
+--disable \
+    fileHeader, \
+    isEmpty, \
+    markTypes, \
+    redundantReturn, \
+    sortedSwitchCases, \
+    specifiers, \
+    wrapSwitchCases
+--swiftversion 5.4
+--allman false
+--elseposition same-line
+--guardelse auto
+--emptybraces spaced
+--extensionacl on-extension
+--patternlet hoist
+--indent 4
+--indentcase true
+--ifdef indent
+--xcodeindentation false
+--linebreaks lf
+--decimalgrouping 3,6
+--binarygrouping 4,8
+--octalgrouping 4,8
+--hexgrouping 4,8
+--fractiongrouping disabled
+--exponentgrouping disabled
+--hexliteralcase lowercase
+--exponentcase lowercase
+--self remove
+--redundanttype inferred
+--semicolons never
+--importgrouping alpha
+--operatorfunc spaced
+--ranges spaced
+--commas always
+--trimwhitespace always
+--shortoptionals always
+--stripunusedargs unnamed-only
+--voidtype void
+--maxwidth 100
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--closingparen balanced
+--wrapreturntype if-multiline
+--wrapconditions before-first
+--funcattributes prev-line
+--typeattributes prev-line
+--varattributes preserve
