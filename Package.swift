@@ -4,9 +4,10 @@ import PackageDescription
 let package = Package(
     name: "comp333-03",
     products: [
-        .executable(name: "comp333-03", targets: ["comp333-03"]),
+        .library(name: "MyList", targets: ["MyList"]),
     ],
     targets: [
-        .executableTarget(name: "comp333-03", path: "src"),
+        .target(name: "MyList", path: "src"),
+        .testTarget(name: "MyListTests", dependencies: ["MyList"], path: "tests"),
     ]
 )
