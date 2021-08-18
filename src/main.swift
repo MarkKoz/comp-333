@@ -49,7 +49,8 @@ func mapFunction<A, B>(list: MyList<A>, mapper: (A) -> B) -> MyList<B> {
     }
 }
 
-// ---BEGIN TEST SUITE---
+// region tests
+// region test utils
 func assertEqualsBase<A>(testName: String,
                          compare: (A, A) -> Bool,
                          toString: (A) -> String,
@@ -118,7 +119,9 @@ func assertEquals(testName: String,
                      expected: expected,
                      received: received)
 }
+// endregion
 
+// region isEmpty tests
 func test_isEmpty_empty() {
     let list: MyList<Int> = MyList.empty
     assertEquals(testName: "test_isEmpty_empty",
@@ -132,7 +135,9 @@ func test_isEmpty_cons() {
                  expected: false,
                  received: list.isEmpty())
 }
+// endregion
 
+// region append tests
 func test_append_empty_empty() {
     let list1: MyList<Int> = MyList.empty
     let list2: MyList<Int> = MyList.empty
@@ -204,7 +209,9 @@ func test_append_cons_2_cons_2() {
                  expected: MyList.cons(1, MyList.cons(2, MyList.cons(3, MyList.cons(4, MyList.empty)))),
                  received: list1.append(other: list2))
 }
+// endregion
 
+// region length tests
 func test_length_empty() {
     let list1: MyList<Int> = MyList.empty
     assertEquals(testName: "test_length_empty",
@@ -232,7 +239,9 @@ func test_length_cons_3() {
                  expected: 3,
                  received: list1.length())
 }
+// endregion
 
+// region map tests
 func test_map_empty_1() {
     let list1: MyList<Int> = MyList.empty
     let expected: MyList<Int> = MyList.empty
@@ -290,7 +299,9 @@ func test_map_cons_3_strings() {
                  expected: MyList.cons("1", MyList.cons("2", MyList.cons("3", MyList.empty))),
                  received: list1.map(mapper: { i in i.description }))
 }
+// endregion
 
+// region filter tests
 func test_filter_empty_integers() {
     let list1: MyList<Int> = MyList.empty
     assertEquals(testName: "test_filter_empty_integers",
@@ -360,7 +371,9 @@ func test_filter_cons_4_strings() {
                  expected: MyList.cons("foobar", MyList.cons("apple", MyList.empty)),
                  received: list1.filter(predicate: { s in s.count > 3 }))
 }
+// endregion
 
+// region toString tests
 func test_toString_empty_integers() {
     let list1: MyList<Int> = MyList.empty
     assertEquals(testName: "test_toString_empty_integers",
@@ -416,7 +429,9 @@ func test_toString_cons_3_strings() {
                  expected: "[foo, bar, baz]",
                  received: list1.toString(innerToString: { s in s }))
 }
+// endregion
 
+// region contains tests
 func test_contains_empty_integers() {
     let list1: MyList<Int> = MyList.empty
     assertEquals(testName: "test_contains_empty_integers",
@@ -500,7 +515,9 @@ func test_contains_cons_2_strings_3() {
                  expected: true,
                  received: list1.contains(target: "bar", compare: ==))
 }
+// endregion
 
+// region sum tests
 func test_sum_empty() {
     let list1: MyList<Int> = MyList.empty
     assertEquals(testName: "test_sum_empty",
@@ -528,7 +545,9 @@ func test_sum_cons_3() {
                  expected: 6,
                  received: list1.sum(zero: 0, add: +))
 }
+// endregion
 
+// region equals tests
 func test_equals_empty_lists() {
     let list1: MyList<Int> = MyList.empty
     let list2: MyList<Int> = MyList.empty
@@ -584,6 +603,7 @@ func test_equals_cons_2_are_not_equal_different_contents_2() {
                  expected: false,
                  received: list1.equals(otherList: list2, compareInner: ==))
 }
+// endregion
 
 func runTests() {
     // isEmpty
@@ -668,8 +688,6 @@ func runTests() {
     test_equals_cons_2_are_not_equal_different_contents_1()
     test_equals_cons_2_are_not_equal_different_contents_2()
 }
-// ---END TEST SUITE---
+// endregion
 
-// ---BEGIN MAIN---
 runTests()
-// ---END MAIN---
