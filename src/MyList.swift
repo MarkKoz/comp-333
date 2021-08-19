@@ -80,7 +80,16 @@ public extension MyList {
     }
 
     func contains(target: A, compare: (A, A) -> Bool) -> Bool {
-        return false
+        switch self {
+            case let .cons(head, tail):
+                if compare(head, target) {
+                    return true
+                } else {
+                    return tail.contains(target: target, compare: compare)
+                }
+            case .empty:
+                return false
+        }
     }
 
     func sum(zero: A, add: (A, A) -> A) -> A {
