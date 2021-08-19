@@ -66,7 +66,17 @@ public extension MyList {
     }
 
     func filter(predicate: (A) -> Bool) -> MyList {
-        return self
+        switch self {
+            case let .cons(head, tail):
+                let filtered = tail.filter(predicate: predicate)
+                if predicate(head) {
+                    return .cons(head, filtered)
+                } else {
+                    return filtered
+                }
+            case .empty:
+                return .empty
+        }
     }
 
     func contains(target: A, compare: (A, A) -> Bool) -> Bool {
