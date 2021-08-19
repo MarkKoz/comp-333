@@ -39,7 +39,12 @@ public extension MyList {
     }
 
     func isEmpty() -> Bool {
-        return true
+        switch self {
+            case .empty:
+                return true
+            case _:
+                return false
+        }
     }
 
     func append(other: MyList) -> MyList {
