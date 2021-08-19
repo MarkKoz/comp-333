@@ -57,7 +57,12 @@ public extension MyList {
     }
 
     func length() -> Int {
-        return 0
+        switch self {
+            case let .cons(_, tail):
+                return 1 + tail.length()
+            case .empty:
+                return 0
+        }
     }
 
     func filter(predicate: (A) -> Bool) -> MyList {
