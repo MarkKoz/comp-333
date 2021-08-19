@@ -48,7 +48,12 @@ public extension MyList {
     }
 
     func append(other: MyList) -> MyList {
-        return self
+        switch self {
+            case let .cons(head, tail):
+                return .cons(head, tail.append(other: other))
+            case .empty:
+                return other
+        }
     }
 
     func length() -> Int {
