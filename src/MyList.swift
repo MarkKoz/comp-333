@@ -93,7 +93,12 @@ public extension MyList {
     }
 
     func sum(zero: A, add: (A, A) -> A) -> A {
-        return zero
+        switch self {
+            case let .cons(head, tail):
+                return add(head, tail.sum(zero: zero, add: add))
+            case .empty:
+                return zero
+        }
     }
 }
 
