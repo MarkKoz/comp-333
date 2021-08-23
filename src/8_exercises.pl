@@ -57,4 +57,9 @@ directPrereq(comp256, phil230).
 %     is a prerequisite (but not necessarily a direct prerequisite)
 %     to course B.  This serves as a recursive case.
 
-% ---REPLACE ME WITH CODE---
+prereq(Course, Prereq) :-
+    directPrereq(Course, Prereq).
+
+prereq(Course, Prereq) :-
+    directPrereq(Course, A),
+    prereq(A, Prereq).
