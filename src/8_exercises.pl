@@ -11,7 +11,13 @@
 % inclusive).  If the low end is greater than the high end,
 % then failure should occur.
 
-% ---REPLACE ME WITH CODE---
+sumAll(R, R, R).
+
+sumAll(Low, High, Sum) :-
+    Low < High,
+    NextLow is Low + 1,
+    sumAll(NextLow, High, PartialSum),
+    Sum is Low + PartialSum.
 
 % With your summation procedure in hand, the following queries
 % should all succeed (do NOT simply hardcode these values!):
